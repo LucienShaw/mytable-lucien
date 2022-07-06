@@ -1,7 +1,7 @@
 def read(filname, delimiter=','):
     res = []
     with open(filname, 'r', encoding = 'utf-8') as f:
-        table = f.readlines()
+        table = f.read().strip().split('\n')
     for row in table:
         res.append(row.strip('\n').split(delimiter))
     return res
