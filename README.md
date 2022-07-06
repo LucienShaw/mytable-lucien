@@ -17,6 +17,8 @@ It consumes less resource and processes more quickly than the current csv module
 
 It reads CSV files as plain texts and stores the table in a list, whose elements are lists of cells of the current row. The list is the value to the key 'full' of a dict, which is the returned value of the function.
 
+It's worth noting that this program handles commas (delimiters), quotation marks, and newlines within a cell with ease.
+
 Here is the guidance.
 ### To import
 ```python
