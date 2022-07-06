@@ -22,6 +22,9 @@ jobs:
       - name: Build
         run: |
           python setup.py sdist bdist_wheel
+      - name: Zip Files
+        run: |
+          zip -r mytable-lucien.zip ./dist/* 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -38,16 +41,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/mytable_lucien-${{ github.ref }}-py3-none-any.whl
-          asset_name: mytable_lucien-${{ github.ref }}-py3-none-any.whl
-      - name: Upload Release Asseets (*.tar.gz)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/mytable-lucien-${{ github.ref }}.tar.gz
-          asset_name: mytable-lucien-${{ github.ref }}.tar.gz
+          asset_path: ./mytable-lucien.zip
+          asset_name: mytable-lucien.zip
+          asset_content_type: application/zip
       - name: Publish a Python distribution to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
