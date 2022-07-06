@@ -63,7 +63,7 @@ mycsv.write(filename, table, delimiter=',')
 
   There is no returned value.
 ## MYTOOLS
-Useful tools. Simple, but powerful.
+Useful tools. Simple, yet powerful.
 ### To import
 ```python
 from mytable import mytools
