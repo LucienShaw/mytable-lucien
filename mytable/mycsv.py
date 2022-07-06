@@ -4,6 +4,12 @@ class InvalidCSVFormat(Exception):
         self.error_info = error_info
     def __str__(self):
         return self.error_info
+class InvalidDataFormat(Exception):
+    def __init__(self, error_info):
+        super(InvalidDataFormat, self).__init__(error_info)
+        self.error_info = error_info
+    def __str__(self):
+        return self.error_info        
 def read(filname, delimiter=','):
     res = [[]]
     with open(filname, 'r', encoding = 'utf-8') as f:
@@ -37,7 +43,7 @@ def read(filname, delimiter=','):
                     cell_revised = ''
                     j = 0
                     while j<len(cell):
-                        cell_revised = cell_revised + cell[j]
+                        cell_revised += cell[j]
                         if cell[j] == '"':
                             if j+1 < len(cell) and cell[j+1] != '"':
                                 raise InvalidCSVFormat('Original quotation marks in a cell should be doubled')
@@ -68,11 +74,30 @@ def read(filname, delimiter=','):
 def write(filename, table, delimiter=','):
     rows = len(table)
     columns = len(table[0])
+    res = ''
+    last_col_cnt = 0
+    cur_col_cnt = 0
+    for row in range(rows):
+        cur_col_cnt = len(table[row])
+        if row == 0:
+            last_col_cnt = len(table[row])
+        if last_col_cnt != cur_col_cnt:
+            raise InvalidDataFormat('Number of columns in each row should be equal')
+        for column in range(columns):
+            cell = table[row][column]
+            if ('"' in cell) or (delimiter in cell) or ('\n' in cell):
+                cell_revised = '"'
+                for char in cell:
+                    cell_revised += char
+                    if char == '"':
+                        cell_revised += '"'
+                cell_revised += '"'
+            else:
+                cell_revised = cell[:]
+            res += cell_revised
+            if column != columns - 1:
+                res += ','
+            else:
+                res += '\n'
     with open(filename, 'w', encoding = 'utf-8') as f:
-        for row in range(rows):
-            for column in range(columns):
-                print(table[row][column],end='',file=f)
-                if column < columns-1:
-                    print(delimiter,end='',file=f)
-            if row < rows-1:
-                print('\n',end='',file=f)
+        f.write(res)
