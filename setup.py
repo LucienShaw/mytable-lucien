@@ -5,9 +5,10 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name='mytable-lucien',
-    version='4.6.4',
+    version='5.0.0',
     author='Lucien',
     author_email="myxlc55@outlook.com",
+    url="https://github.com/lucienshawls/mytable-lucien",
     description="A simple package for processing data in the form of a table.",
     long_description_content_type='text/markdown',
     long_description=long_description,
