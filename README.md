@@ -27,36 +27,35 @@ from mytable import mycsv
 ### Function `read()`
 This reads a CSV file and store the table in a list.
 - usage
-```python
-res = mycsv.read(filname, delimiter=',')
-```
+  ```python
+  res = mycsv.read(filename, delimiter=',')
+  ```
 - arguments
-  - filename
+  - `filename`
   
     A string value. The filename of the CSV file.
-  - delimiter
+  - `delimiter`
   
     A char value. Comma by default. The character which is used to delimit the columns.
 - returned value
-  - res
       
-    List of rows. Each row is a list of columns, aka. cells, which contains strings. 
+  List of rows. Each row is a list of columns, aka. cells, which contains strings. 
 ### Function `write()`
 This creates a CSV file.
 - usage
-```python
-mycsv.write(filename, table, delimiter=',')
-```
+  ```python
+  mycsv.write(filename, table, delimiter=',')
+  ```
 - arguments
-  - filename
+  - `filename`
     
     A string value. The filename of the CSV file to be written.
-  - table
+  - `table`
   
     A list, the structure of which is the same as the value to the key 'full' of the returned dict of function read().
     
     All values shall be **strings**.
-  - delimiter
+  - `delimiter`
   
     A char value. Comma by default. The character which is used to delimit the columns.
 - returned value
@@ -65,19 +64,19 @@ mycsv.write(filename, table, delimiter=',')
 ## Module `mytools`
 Useful tools. Simple, yet powerful.
 ### Import
-```python
-from mytable import mytools
-```
+  ```python
+  from mytable import mytools
+  ```
 ### Function `excel_ctn()`
 All functions of this package use numbers as indexes, but Excel uses alphabets as indications of the columns, such as 'A' for column 0 (*We count from 0, remember?*), 'Z' for column 25, and 'AA' for column 26.
 
 This converts the alphabetical column Characters To pure Numbers.
 - usage
-```python
-res = mytools.excel_ctn(col)
-```
+  ```python
+  res = mytools.excel_ctn(col)
+  ```
 - arguments
-  - col
+  - `col`
 
     Alphabetical column characters, such as 'A' or 'AA', etc.
 - returned value
@@ -94,23 +93,22 @@ In some circumstances, there are so many columns that they cannot be fully displ
 
 This allows you to select some columns and rows so that you can extract them to a new temporary CSV file and view them with your favorite table viewer, like Excel.
 - usage
-```python
-table_select = myview.select_range(table, columns=[], rows=[])
-```
+  ```python
+  table_select = myview.select_range(table, columns=[], rows=[])
+  ```
 - arguments
-  - table
+  - `table`
 
     An original table in the form of a list.
-  - columns
+  - `columns`
   
     A list of column numbers that indicate the columns you would like to see. The default value is an empty list, which selects all columns.
-  - rows
+  - `rows`
 
     A list of row numbers that indicate the rows you would like to see. The default value is an empty list, which selects all rows.
 - returned value
-  - table_select
 
-    A table which contains the selected range. 
+  A table which contains the selected range. 
 ## Module `myedit`
 Edit the table the easy way.
 ### Import
@@ -120,28 +118,26 @@ from mytable import myedit
 ### Function `combine_rows()`
 This combines rows of multiple tables with the same total number of columns.
 - usage
-```python
-comb = myedit.combine_rows(tables)
-```
+  ```python
+  comb = myedit.combine_rows(tables)
+  ```
 - arguments
-  - tables
+  - `tables`
 
     A list which contains multiple tables.
 - returned value
-  - comb
   
-    The combined table.
+  The combined table.
 ### Function `combine_columns()`
 This combines columns of multiple tables with the same total number of rows.
 - usage
-```python
-comb = myedit.combine_columns(tables)
-```
+  ```python
+  comb = myedit.combine_columns(tables)
+  ```
 - arguments
-  - tables
+  - `tables`
 
     A list which contains multiple tables.
 - returned value
-  - comb
   
-    The combined table.
+  The combined table.
