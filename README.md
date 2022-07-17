@@ -1,4 +1,4 @@
-# MYTABLE
+# Package `mytable-lucien`
 A simple package for processing data in the form of a table.
 
 Pay attention, *all indexes start from 0 instead of 1*.
@@ -11,7 +11,7 @@ To import:
 ```python
 import mytable
 ```
-## MYCSV
+## Module `mycsv`
 This is a simple reader and writer for CSV files by Lucien Shaw.
 It consumes less resource and processes more quickly than the current csv module, though a lot less functional.
 
@@ -20,12 +20,12 @@ It reads CSV files as plain texts and stores the table in a list, whose elements
 It's worth noting that this program handles commas (delimiters), quotation marks, and newlines within a cell with ease.
 
 Here is the guidance.
-### To import
+### Import
 ```python
 from mytable import mycsv
 ```
-### Function: read()
-Read a CSV file and store the table in a list.
+### Function `read()`
+This reads a CSV file and store the table in a list.
 - usage
 ```python
 res = mycsv.read(filname, delimiter=',')
@@ -41,8 +41,8 @@ res = mycsv.read(filname, delimiter=',')
   - res
       
     List of rows. Each row is a list of columns, aka. cells, which contains strings. 
-### Function: write()
-Create a CSV file.
+### Function `write()`
+This creates a CSV file.
 - usage
 ```python
 mycsv.write(filename, table, delimiter=',')
@@ -61,14 +61,14 @@ mycsv.write(filename, table, delimiter=',')
     A char value. Comma by default. The character which is used to delimit the columns.
 - returned value
 
-  There is no returned value.
-## MYTOOLS
+  There are no returned values.
+## Module `mytools`
 Useful tools. Simple, yet powerful.
-### To import
+### Import
 ```python
 from mytable import mytools
 ```
-### Function: excel_ctn()
+### Function `excel_ctn()`
 All functions of this package use numbers as indexes, but Excel uses alphabets as indications of the columns, such as 'A' for column 0 (*We count from 0, remember?*), 'Z' for column 25, and 'AA' for column 26.
 
 This converts the alphabetical column Characters To pure Numbers.
@@ -83,13 +83,13 @@ res = mytools.excel_ctn(col)
 - returned value
   
   A number, as mentioned above.
-## MYVIEW
-Provide a better view of the tables.
-### To import
+## Module `myview`
+This provides a better view of the tables.
+### Import
 ```python
 from mytable import myview
 ```
-### Function: select_range()
+### Function `select_range()`
 In some circumstances, there are so many columns that they cannot be fully displayed in excel, and columns that exceed the limit cannot be visualized.
 
 This allows you to select some columns and rows so that you can extract them to a new temporary CSV file and view them with your favorite table viewer, like Excel.
@@ -111,14 +111,14 @@ table_select = myview.select_range(table, columns=[], rows=[])
   - table_select
 
     A table which contains the selected range. 
-## MYEDIT
+## Module `myedit`
 Edit the table the easy way.
-### To import
+### Import
 ```python
 from mytable import myedit
 ```
-### Function: combine_rows()
-Combine rows of multiple tables with the same total number of columns.
+### Function `combine_rows()`
+This combines rows of multiple tables with the same total number of columns.
 - usage
 ```python
 comb = myedit.combine_rows(tables)
@@ -131,8 +131,8 @@ comb = myedit.combine_rows(tables)
   - comb
   
     The combined table.
-### Function: combine_columns()
-Combine columns of multiple tables with the same total number of rows.
+### Function `combine_columns()`
+This combines columns of multiple tables with the same total number of rows.
 - usage
 ```python
 comb = myedit.combine_columns(tables)
