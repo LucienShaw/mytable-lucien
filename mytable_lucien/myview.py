@@ -1,4 +1,4 @@
-from mytable import mycsv
+from mytable_lucien import mycsv
 
 def select_range(table, columns=[], rows=[]):
     if len(rows) == 0:

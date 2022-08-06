@@ -9,7 +9,7 @@ pip install mytable-lucien
 ```
 To import:
 ```python
-import mytable
+import mytable_lucien
 ```
 ## Module `mycsv`
 This is a simple reader and writer for CSV files by Lucien Shaw.
@@ -22,7 +22,7 @@ It's worth noting that this program handles commas (delimiters), quotation marks
 Here is the guidance.
 ### Import
 ```python
-from mytable import mycsv
+from mytable_lucien import mycsv
 ```
 ### Function `read()`
 This reads a CSV file and store the table in a list.
@@ -65,7 +65,7 @@ This creates a CSV file.
 Useful tools. Simple, yet powerful.
 ### Import
   ```python
-  from mytable import mytools
+  from mytable_lucien import mytools
   ```
 ### Function `excel_ctn()`
 All functions of this package use numbers as indexes, but Excel uses alphabets as indications of the columns, such as 'A' for column 0 (*We count from 0, remember?*), 'Z' for column 25, and 'AA' for column 26.
@@ -86,7 +86,7 @@ This converts the alphabetical column Characters To pure Numbers.
 This provides a better view of the tables.
 ### Import
 ```python
-from mytable import myview
+from mytable_lucien import myview
 ```
 ### Function `select_range()`
 In some circumstances, there are so many columns that they cannot be fully displayed in excel, and columns that exceed the limit cannot be visualized.
@@ -113,7 +113,7 @@ This allows you to select some columns and rows so that you can extract them to 
 Edit the table the easy way.
 ### Import
 ```python
-from mytable import myedit
+from mytable_lucien import myedit
 ```
 ### Function `combine_rows()`
 This combines rows of multiple tables with the same total number of columns.
