@@ -10,9 +10,9 @@ class InvalidDataFormat(Exception):
         self.error_info = error_info
     def __str__(self):
         return self.error_info        
-def read(filname, delimiter=','):
+def read(filename, delimiter=','):
     res = [[]]
-    with open(filname, 'r', encoding = 'utf-8') as f:
+    with open(filename, 'r', encoding = 'utf-8') as f:
         table = f.read().strip() + '\n'
     cur_row = 0
     cur_col = 0
